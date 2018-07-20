@@ -19,20 +19,20 @@ find_package(cgogn_rendering REQUIRED)
 find_package(cgogn_topology REQUIRED)
 
 set(HEADER_FILES
-	topogical_analysis.h
+	topological_analysis.h
 	)
 
 set(CGOGN_TEST_MESHES_PATH "${CMAKE_SOURCE_DIR}/data/meshes")
 add_definitions("-DCGOGN_TEST_MESHES_PATH=${CGOGN_TEST_MESHES_PATH}")
 
-add_executable(topological_analysis_2d ${HEADER_FILES} topogical_analysis_2d.cpp)
+add_executable(topological_analysis_2d ${HEADER_FILES} topological_analysis_2d.cpp)
 target_link_libraries(topological_analysis_2d
 	${cgogn_core_LIBRARIES} ${cgogn_geometry_LIBRARIES} ${cgogn_io_LIBRARIES}
 	${cgogn_rendering_LIBRARIES} ${Qt5Widgets_LIBRARIES} ${QOGLViewer_LIBRARIES}
 	${cgogn_topology_LIBRARIES}
 	)
 
-add_executable(topological_analysis_3d ${HEADER_FILES} topogical_analysis_3d.cpp)
+add_executable(topological_analysis_3d ${HEADER_FILES} topological_analysis_3d.cpp)
 target_link_libraries(topological_analysis_3d
 	${cgogn_core_LIBRARIES} ${cgogn_geometry_LIBRARIES} ${cgogn_io_LIBRARIES}
 	${cgogn_rendering_LIBRARIES} ${Qt5Widgets_LIBRARIES} ${QOGLViewer_LIBRARIES}

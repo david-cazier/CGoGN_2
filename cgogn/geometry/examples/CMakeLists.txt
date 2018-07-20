@@ -7,6 +7,7 @@ project(cgogn_geometry_examples
 if (CGOGN_USE_QT)
 
 find_package(cgogn_core REQUIRED)
+find_package(cgogn_geometry REQUIRED)
 find_package(cgogn_io REQUIRED)
 find_package(cgogn_rendering REQUIRED)
 find_package(QOGLViewer REQUIRED)
@@ -19,10 +20,13 @@ add_definitions("-DCGOGN_TEST_MESHES_PATH=${CGOGN_TEST_MESHES_PATH}")
 
 
 add_executable(filtering filtering.cpp)
-target_link_libraries(filtering ${cgogn_core_LIBRARIES} ${cgogn_io_LIBRARIES} ${cgogn_rendering_LIBRARIES} ${QOGLViewer_LIBRARIES})
+target_link_libraries(filtering
+	${cgogn_core_LIBRARIES} ${cgogn_io_LIBRARIES} ${cgogn_rendering_LIBRARIES} ${QOGLViewer_LIBRARIES})
 
+add_executable(corefinement corefinement.h corefinement.cpp)
+target_link_libraries(corefinement
+	${cgogn_core_LIBRARIES} ${cgogn_geometry_LIBRARIES} ${cgogn_io_LIBRARIES} ${cgogn_rendering_LIBRARIES} ${QOGLViewer_LIBRARIES})
 
 set_target_properties(filtering PROPERTIES FOLDER examples/geometry)
-
 
 endif()

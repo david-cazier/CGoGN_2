@@ -21,7 +21,7 @@
 *                                                                              *
 *******************************************************************************/
 
-#include "topogical_analysis.h"
+#include "topological_analysis.h"
 
 int main(int argc, char** argv)
 {
@@ -29,7 +29,7 @@ int main(int argc, char** argv)
 	if (argc < 2)
 	{
 		cgogn_log_info("topogical_analysis") << "USAGE: " << argv[0] << " [filename]";
-		filename = std::string(DEFAULT_MESH_PATH) + std::string("/tet/hand.tet");
+		filename = std::string(DEFAULT_MESH_PATH) + std::string("/off/aneurysm_3D.off");
 		cgogn_log_info("topogical_analysis") << "Using default mesh \"" << filename << "\".";
 	}
 	else
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
 	qoglviewer::init_ogl_context();
 
 	// Instantiate the viewer.
-	TopologicalAnalyser<cgogn::CMap3> viewer;
+	TopologicalAnalyser<cgogn::CMap2> viewer;
 	viewer.setWindowTitle("Topological Analysis");
 	viewer.import(filename);
 	viewer.show();
